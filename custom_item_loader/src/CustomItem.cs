@@ -114,6 +114,7 @@ public class CustomItem
 		if (gadgetBase == null)
 		{
 			Main.Error($"Failed to initialize gadget {itemPrefab.name}: gadget not defined");
+			return;
 		}
 		var actualGadgetBase = CustomGadgetBaseMap.CreateGadgetBase( gadgetBase );
 		actualGadgetBase.gameObject.SetLayerIncludingChildren((int)Layers.DVLayer.Interactable);
@@ -125,7 +126,7 @@ public class CustomItem
 		actualGadgetBase.soundOnPlaced = gadgetBase.soundOnPlaced;
 		actualGadgetBase.soundOnRemoved = gadgetBase.soundOnRemoved;
 		actualGadgetBase.requiredMountPoints = gadgetBase.requiredMountPoints;
-		actualGadgetBase.requireSoldering = false;
+		actualGadgetBase.requireSoldering = gadgetBase.requireSoldering;
 		actualGadgetBase.requirements = new DV.Customization.TrainCarCustomization.TrainCarCustomizerBase.TrainCarRequirements();
 		actualGadgetBase.requirements.electricsFuse = false;
 		actualGadgetBase.requirements.baseControls = false;
@@ -135,7 +136,7 @@ public class CustomItem
 
 		var actualGadgetItem = gadget.gameObject.AddComponent<DV.Customization.Gadgets.GadgetItem>();
 		actualGadgetItem.gadgetPrefab = actualGadgetBase;
-
+		CustomControlsMap.Map(actualGadgetBase);
 		CustomGadgetBaseMap.ApplyCustomizations(gadgetBase, ref actualGadgetBase);
 
 		Object.Destroy(gadget);

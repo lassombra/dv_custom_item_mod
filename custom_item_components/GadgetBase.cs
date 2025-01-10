@@ -22,6 +22,6 @@ namespace custom_item_components
 		public AudioClip soundOnPlaced;
 		public AudioClip soundOnRemoved;
 		public int requiredMountPoints;
-
+		public bool requireSoldering;
 	}
 }

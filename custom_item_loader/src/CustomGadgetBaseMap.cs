@@ -31,6 +31,7 @@ namespace custom_item_mod
 		{
 			Type targetType = default;
 			if (mappedCustomTypes.ContainsKey(sourceGadgetBase.GetType())) {
+				Main.Log($"Found mapping {mappedCustomTypes[sourceGadgetBase.GetType()]} for type {sourceGadgetBase.GetType()}");
 				targetType = mappedCustomTypes[sourceGadgetBase.GetType()].Item1;
 			} else
 			{
