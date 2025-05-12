@@ -2,7 +2,7 @@
 bin
 obj
 packages
-Directory.Build.targets
+Directory.Build.props
 Folder.DotSettings.user
 dist
 build
